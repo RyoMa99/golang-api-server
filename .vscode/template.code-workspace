@@ -1,0 +1,79 @@
+{
+  "folders": [
+    {
+      "name": "root",
+      "path": ".."
+    }
+  ],
+  "settings": {
+	},
+  "extensions": {
+    "recommendations": [
+      // 汎用
+      // trailing space ・ colorizer bracketは公式設定
+      "ms-ceintl.vscode-language-pack-ja", // vscode日本語化
+      "vscode-icons-team.vscode-icons", // ファイルの拡張子ごとのアイコン
+      "editorconfig.editorconfig", // editorconfig
+      "streetsidesoftware.code-spell-checker", // コード中のスペルチェック
+      "VisualStudioExptTeam.vscodeintellicode", // コーディングのサジェスト機能
+      "mosapride.zenkaku", // 全角スペースを表示する
+      "satokaz.vscode-bs-ctrlchar-remover", // 制御文字の削除。ppt等からコピペした際に使える
+      "chrmarti.regex", // Ctrl + alt + m で正規表現のテストが出来る
+      "redhat.vscode-yaml", // yamlのフォーマッタ
+      "mikestead.dotenv", // .envファイルのフォーマッタ
+      "yzhang.markdown-all-in-one", // mdファイルのフォーマッタ・プレビュー
+      "mhutchie.git-graph", // gitの履歴をグラフ表示
+      "eamodio.gitlens", // ファイルの改修履歴をペイン分割して見れる
+      "donjayamanne.githistory", // git logをvscodeで見れる
+      "wayou.vscode-todo-highlight", // コメントのTODOをハイライトする
+      "Gruntfuggly.todo-tree", // TODOをサイドメニューにリストアップ
+      "arjun.swagger-viewer", // swagger表示に使う
+      "graphql.vscode-graphql", // graphqlの編集に使う
+      "jebbs.plantuml", // vscodeでplantumlを書くのに必要
+      "hediet.vscode-drawio", // vscodeでdrawioを使えるようにする
+      "ms-vscode-remote.remote-containers", // 開発環境をdockerで構築した際に使う
+      "ms-vscode-remote.remote-ssh", // ssh時vscodeで編集する
+      "MS-vsliveshare.vsliveshare", // vscodeでペアプロするのに使う
+      // windows
+      "ms-vscode-remote.remote-wsl", // wsl環境にあるリポジトリを扱う際に使う
+      // docker・k8s
+      "ms-azuretools.vscode-docker", // dockerfileの編集に使う
+      "ms-kubernetes-tools.vscode-kubernetes-tools", // k8s clusterをサイドに表示する
+      // terraform
+      "hashicorp.terraform", // tfファイルの編集に使う
+      // html・css
+      "formulahendry.auto-rename-tag", // htmlの開始タグを変更した際、閉じタグも自動で変更させる
+      "formulahendry.auto-close-tag", // 閉じタグの自動入力
+      "Zignd.html-css-class-completion", // cssのクラス名インテリセンス
+      "esbenp.prettier-vscode", // prettierをvscodeで使うのに必要
+      // js
+      "wix.vscode-import-cost", // importするライブラリのファイルサイズを表示する
+      "ionutvmi.path-autocomplete", // importのパス入力補助
+      "dbaeumer.vscode-eslint", // vscodeでeslintを使うのに必要
+      "ms-vscode.js-debug", // debugger chromeで開ける
+      // React
+      // Nest JS
+      // c++
+      "ms-vscode.cpptools", // c++ 開発全般
+      // java
+      "vscjava.vscode-java-pack", // java 開発全般
+      // python
+      "ms-python.python", // python 開発全般
+      // go
+      "golang.go", // go 開発全般
+    ],
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "debug",
+        "type": "go",
+        "request": "launch",
+        "program": "${workspaceFolder}/main.go",
+        "env": {},
+        "args": []
+      }
+    ]
+  },
+}
