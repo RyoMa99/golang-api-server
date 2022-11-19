@@ -1,0 +1,2 @@
+- HTTPを受け取り、usecaseを呼び結果を出力(JSONやHTML)
+- usecase層と切り離すことでリクエストやレスポンスの形に変わってもinterface層の修正だけで済むようになる

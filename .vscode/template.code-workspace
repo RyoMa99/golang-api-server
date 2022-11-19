@@ -6,6 +6,12 @@
     }
   ],
   "settings": {
+    "cSpell.words": [
+      "godotenv",
+      "gorm",
+      "httprouter",
+      "usecase"
+    ]
 	},
   "extensions": {
     "recommendations": [
