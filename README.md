@@ -1,5 +1,6 @@
 # go ddd api server
 - [参考](https://mintaku-blog.net/go-ddd/)
+- [mysql接続文字列を直接書かないようにする](https://zenn.dev/mstn_/articles/75667657fa5aed)
 
 ## dbの準備
 ```bash

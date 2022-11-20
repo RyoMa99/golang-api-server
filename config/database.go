@@ -1,11 +1,11 @@
 package config
 
 import (
-	"fmt"
 	"os"
+	"time"
 
+	"github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/joho/godotenv"
 )
 
@@ -30,15 +30,18 @@ func Connect() *gorm.DB {
 	godotenv.Load()
 
 	// DB接続
-	connect := fmt.Sprintf(
-		"%s:%s@%s/%s?parseTime=true",
-		os.Getenv("DB_USER"),
-		os.Getenv("DB_PASSWORD"),
-		os.Getenv("DB_Protocol"),
-		os.Getenv("DB_NAME"),
-	)
+	connect := mysql.Config{
+		DBName:    os.Getenv("DB_NAME"),
+		User:      os.Getenv("DB_USER"),
+		Passwd:    os.Getenv("DB_PASSWORD"),
+		Addr:      os.Getenv("DB_ADDR"),
+		Net:       "tcp",
+		ParseTime: true,
+		Collation: "utf8mb4_unicode_ci",
+		Loc:       time.UTC,
+	}
 
-	db, err = gorm.Open("mysql", connect)
+	db, err = gorm.Open("mysql", connect.FormatDSN())
 
 	if err != nil {
 		panic(err)
