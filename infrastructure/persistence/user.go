@@ -20,16 +20,16 @@ func NewUserPersistence(conn *gorm.DB) repository.UserRepository {
 func (up *userPersistence) Search(name string) ([]*model.User, error) {
 	var user []*model.User
 
-	// DB接続確認
-	if err := up.Conn.Take(&user).Error; err != nil {
-		return nil, err
-	}
-
-	db := up.Conn.Find(&user)
-
-	// 名前検索
-	if name != "" {
-		db = db.Where("name = ?", name).Find(&user)
+	if name == "" {
+		// nameが空なら全件検索
+		if err := up.Conn.Find(&user).Error; err != nil {
+			return nil, err
+		}
+	} else {
+		// nameでの条件付き検索
+		if err := up.Conn.Where("name = ?", name).Find(&user).Error; err != nil {
+			return nil, err
+		}
 	}
 
 	return user, nil
