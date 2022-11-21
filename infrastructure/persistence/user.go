@@ -34,3 +34,11 @@ func (up *userPersistence) Search(name string) ([]*model.User, error) {
 
 	return user, nil
 }
+
+func (up *userPersistence) Create(user *model.User) (*model.User, error) {
+	if result := up.Conn.Create(&user); result.Error != nil {
+		return nil, result.Error
+	}
+
+	return user, nil
+}

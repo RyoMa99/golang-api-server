@@ -8,6 +8,7 @@ import (
 // UserにおけるUseCaseのインターフェース
 type UserUseCase interface {
 	Search(name string) ([]*model.User, error)
+	Create(name string) (*model.User, error)
 }
 
 type userUseCase struct {
@@ -28,4 +29,19 @@ func (uu userUseCase) Search(name string) (user []*model.User, err error) {
 		return nil, err
 	}
 	return user, nil
+}
+
+// 新規作成
+func (uu userUseCase) Create(name string) (*model.User, error) {
+	user, err := model.NewUser(name)
+	if err != nil {
+		return nil, err
+	}
+
+	createdUser, err := uu.userRepository.Create(user)
+	if err != nil {
+		return nil, err
+	}
+
+	return createdUser, nil
 }

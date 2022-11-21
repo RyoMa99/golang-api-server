@@ -20,6 +20,7 @@ func main() {
 	// ルーティングの設定
 	router := httprouter.New()
 	router.GET("/api/users", userHandler.Index)
+	router.POST("/api/users", userHandler.Create)
 
 	// サーバ起動
 	http.ListenAndServe(":8080", &Server{router})
